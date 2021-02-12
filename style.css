@@ -1,0 +1,9 @@
+.container {
+    width: 800px;
+    margin: auto;
+}
+
+div.charts {
+    height: 150px;
+    margin-top: 50px;
+}
