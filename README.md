@@ -1,3 +1,8 @@
+Tingsong Ou Week 3 Assignment Submition
+GitHub Pages link: https://tingsong-ou.github.io/Week-3-assignment/
+
+--------Following are assignment requirements-----
+
 # Week-3-assignment
 
 1. Use the Netflix data to create a bar chart in the SVG with release year and the number of releases

@@ -1,9 +1,37 @@
+html{
+    text-align: center;
+}
+
 .container {
-    width: 800px;
+    width: 1000px;
     margin: auto;
 }
 
 div.charts {
-    height: 150px;
     margin-top: 50px;
+}
+
+.map{
+    stroke: #ccc;
+    fill: none;
+}
+
+.axis path, .axis line{
+    stroke: rgb(106, 106, 106);
+}
+
+.bars{
+    fill: rgb(63, 77, 142);
+}
+
+.axis{
+    font-size: 9px;
+}
+
+.graticule{
+    stroke: rgba(225, 225, 225, 0.591);
+}
+
+.outline{
+    stroke: rgb(176, 176, 176);
 }
