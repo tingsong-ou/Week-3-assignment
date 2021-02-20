@@ -14,7 +14,7 @@ yearSVG.attr('width', size.w)
 mapSVG.attr('width', mapSize.w)
     .attr('height', mapSize.h);
 
-const yearChart = yearSVG.append('g').classed('graph', true);
+let yearChart = yearSVG.append('g').classed('graph', true);
 const map = mapSVG.append('g').classed('map', true);
 
 //CREATING VISUALIZATION
@@ -126,9 +126,12 @@ function barChart(data){
         
     }
 
-    yearChart.selectAll('rect')
-        .data(data, d => d[0])
-        .join('rect')
+    let chart = yearChart.selectAll('rect.bars')
+        .data(data, d => d[0]);
+
+    chart.enter()
+        .append('rect')
+        .attr('class', 'bars')
         .attr('x', d => barScaleX(d[0]))
         .attr('y', (size.h - margin.buttom))
         .attr('width', barScaleX.bandwidth())
@@ -139,6 +142,21 @@ function barChart(data){
         .attr('width', barScaleX.bandwidth())
         .attr('height', d => size.h - margin.buttom - barScaleY(d[1].length))
         .attr('class', 'bars');
+    
+    chart
+        .transition()
+        .duration(500)
+        .attr('x', d => barScaleX(d[0]))
+        .attr('y', d => barScaleY(d[1].length))
+        .attr('width', barScaleX.bandwidth())
+        .attr('height', d => size.h - margin.buttom - barScaleY(d[1].length));
+    
+    chart.exit()
+        .transition()
+        .duration(500)
+        .attr('y', (size.h - margin.buttom))
+        .attr('height', 0);
+
 }
 
 
@@ -223,8 +241,6 @@ function colorMap(paths, data){
         }
         values.push(countByCountry[c]);
     }
-
-    console.log(d3.median(values));
 
     //CREATING EXTENT
     let extent = d3.extent(values, d => d);

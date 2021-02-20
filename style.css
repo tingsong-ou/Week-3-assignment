@@ -1,5 +1,14 @@
 html{
     text-align: center;
+    font-family: monospace;
+}
+
+h1{
+    font-size: 30px;
+}
+
+h3{
+    padding-bottom: 0px;
 }
 
 .container {
@@ -8,7 +17,7 @@ html{
 }
 
 div.charts {
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .map{
